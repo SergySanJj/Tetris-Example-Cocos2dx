@@ -8,6 +8,6 @@ cocos2d-x windows / c++ 11/14 / design pattern
 .Observer .Factory .Mediator .Singleton
 
 # playtest video youtube
-[![Video Label](http://img.youtube.com/vi/3rWdLcznTo0/0.jpg)](https://www.youtube.com/watch?v=3rWdLcznTo0) 
+[![Video Label](http://img.youtube.com/vi/mKlZ9tGgI7k/0.jpg)](https://www.youtube.com/watch?v=mKlZ9tGgI7k) 
 
 # Blog (exe download) URL: http://affineur.tistory.com/13
