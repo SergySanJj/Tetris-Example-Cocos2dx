@@ -17,7 +17,7 @@ void TetrisManager::init(TetrisGameScene *scene)
     _factory = make_unique<TetrominoFactory>();
     _factory->addOrderer(_action);
     _factory->addOrderer(_gridMap);
-    this->request(RQ_START);
+    this->request(RQ_CONTINUE);
 }
 
 
@@ -25,7 +25,7 @@ void TetrisManager::request(const int& code)
 {
     switch (code)
     {
-    case RQ_START:
+    case RQ_CONTINUE:
         _factory->update(_scene);
         _scene->setActivation(true);
         break;
@@ -36,7 +36,7 @@ void TetrisManager::request(const int& code)
 
     case RQ_RESTART:
         _gridMap->reset();
-        this->request(RQ_START);
+        this->request(RQ_CONTINUE);
         break;
     }
 }

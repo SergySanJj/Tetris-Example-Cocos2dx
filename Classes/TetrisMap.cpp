@@ -101,7 +101,7 @@ void TetrisMap::findBingo()
         }
         else
         {
-            _manager.lock()->request(RQ_START);
+            _manager.lock()->request(RQ_CONTINUE);
         }
         return;
     }
