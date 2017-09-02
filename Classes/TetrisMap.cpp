@@ -11,7 +11,6 @@ TetrisMap::TetrisMap(const shared_ptr<TetrisManager>& manager)
 
 TetrisMap::~TetrisMap()
 {
-    CCLOG("Destroy TetrisMap");
 }
 
 void TetrisMap::init(TetrisGameScene * scene)
@@ -26,8 +25,8 @@ bool TetrisMap::isAccessible(const TCoord& _coord)
     array<bool, 4> checkList = 
     {
         _coord.cx < 0, _coord.ry < 0,
-        _coord.cx >(MAX_COLS - 1),
-        _coord.ry >(MAX_ROWS - 1)
+        _coord.cx >(MAX_COL - 1),
+        _coord.ry >(MAX_ROW - 1)
     };
 
     if (!all_of(checkList.begin(), checkList.end(), [](const bool& _b) { return !_b; })) 
@@ -85,17 +84,17 @@ void TetrisMap::findBingo()
 {
     int bingo = 0;
 
-    for (bingo = MAX_ROWS-20; bingo < MAX_ROWS; bingo++)
+    for (bingo = INDEX_MIN_ROW; bingo < MAX_ROW; bingo++)
     {
         if (all_of(_conceptualMap[bingo].begin(), _conceptualMap[bingo].end(), 
             [](const bool& b) { return b; })) break;
     }
 
-    if (bingo >= MAX_ROWS)
+    if (bingo >= MAX_ROW)
     {
         assert(!_manager.expired() && "_manager ptr expired");
         if (any_of(_tetromino->blocks.begin(), _tetromino->blocks.end(), 
-            [](const shared_ptr<Block>& block) { return block->coord.ry >= (MAX_ROWS - 3); }))
+            [](const shared_ptr<Block>& block) { return block->coord.ry >= INDEX_MAX_ROW; }))
         {
             _manager.lock()->request(RQ_GAMEOVER);
         }
@@ -129,9 +128,9 @@ void TetrisMap::deleteLine(const int& line)
 
 void TetrisMap::fall(const int& line)
 {
-    for (int i = line-1; i >= MAX_ROWS-20; i--)
+    for (int i = line-1; i >= INDEX_MIN_ROW; i--)
     {
-        for (int j = 0; j < MAX_COLS; j++)
+        for (int j = 0; j < MAX_COL; j++)
         {
             if (_conceptualMap[i][j] == false) continue;
 
@@ -159,6 +158,6 @@ void TetrisMap::fall(const int& line)
 
 int TetrisMap::rowIndex(const int & i) const
 {
-    assert((MAX_ROWS - i - 1) >= 0 && "index out of range");
-    return MAX_ROWS - i - 1;
+    assert((MAX_ROW - i - 1) >= 0 && "index out of range");
+    return MAX_ROW - i - 1;
 }

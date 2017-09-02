@@ -3,8 +3,8 @@
 
 /* define */
 class TetrisGameScene;
-typedef std::array<std::array<bool, MAX_COLS>, MAX_ROWS> conceptual_map;
-typedef std::array<std::array<shared_ptr<Block>, MAX_COLS>, MAX_ROWS> concrete_map;
+typedef std::array<std::array<bool, MAX_COL>, MAX_ROW> conceptual_map;
+typedef std::array<std::array<shared_ptr<Block>, MAX_COL>, MAX_ROW> concrete_map;
 
 class TetrisManager;
 

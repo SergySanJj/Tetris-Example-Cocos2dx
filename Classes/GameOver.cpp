@@ -42,7 +42,7 @@ DebugUI::DebugUI(Layer * scene)
 
     _ttfBlockPool = Label::createWithTTF("BLOCK: ", "fonts/Acme.ttf", 30);
 
-    static const float mx = BLOCK_SIZE * MAX_COLS;
+    static const float mx = BLOCK_SIZE * MAX_COL;
 
     static const float x = mx + (visibleSize.width - mx) * 0.5F;
 

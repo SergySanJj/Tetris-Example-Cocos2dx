@@ -76,7 +76,7 @@ void TetrominoFactory::next(TetrisGameScene *scene)
     _next = createTetromino(scene, false);
     auto vs = Director::getInstance()->getVisibleSize();
 
-    static const float mx = BLOCK_SIZE * MAX_COLS;
+    static const float mx = BLOCK_SIZE * MAX_COL;
 
     static const float x = mx + (vs.width - mx) * 0.5F;
 

@@ -130,18 +130,18 @@ void TetrisGameScene::drawGridMap()
 {
     auto visibleSize = Director::getInstance()->getVisibleSize();
 
-    for (int i = 0; i <= 20; i++)
+    for (int i = 0; i <= MAX_MAP_ROW; i++)
     {
         auto draw = DrawNode::create();
         draw->drawLine(
             Vec2(0, i*BLOCK_SIZE), 
-            Vec2(BLOCK_SIZE*MAX_COLS, i*BLOCK_SIZE), 
+            Vec2(BLOCK_SIZE*MAX_COL, i*BLOCK_SIZE), 
             Color4F(Color3B::WHITE, 0.2));
 
         this->addChild(draw);
     }
 
-    for (int i = 0; i <= MAX_COLS; i++)
+    for (int i = 0; i <= MAX_COL; i++)
     {
         auto draw = DrawNode::create();
         draw->drawLine(Vec2(i * BLOCK_SIZE, 0), Vec2(i * BLOCK_SIZE, BLOCK_SIZE * 20), Color4F(Color3B::WHITE, 0.2));
@@ -151,7 +151,7 @@ void TetrisGameScene::drawGridMap()
 #ifdef _DEBUG
     for (int i = 0; i < 20; i++)
     {
-        for (int j = 0; j < MAX_COLS; j++)
+        for (int j = 0; j < MAX_COL; j++)
         {
             char t[10];
             sprintf(t, "%d,%d", i, j);

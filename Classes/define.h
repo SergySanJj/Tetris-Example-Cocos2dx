@@ -6,13 +6,16 @@ namespace TETRIS
     const int BLOCK_HALF = BLOCK_SIZE / 2.F;
     const int DEGREE = -90.0F;
 
-    const int MAX_COLS = 10;
-    const int MAX_ROWS = 22;
+    const int MAX_COL = 10;
+    const int MAX_ROW = 22;
+    const int MAX_MAP_ROW = 20;
+    const int INDEX_MAX_ROW = MAX_MAP_ROW - 1;
+    const int INDEX_MIN_ROW = MAX_ROW - MAX_MAP_ROW;
 
     const int LEFT_LIMIT = 0;
-    const int RIGHT_LIMIT = MAX_COLS - 1;
+    const int RIGHT_LIMIT = MAX_COL - 1;
     const int BOTTOM_LIMIT = 0;
-    const int TOP_LIMIT = MAX_ROWS - 1;
+    const int TOP_LIMIT = MAX_ROW - 1;
 
     const int COLOR_RED = 0;
     const int COLOR_PINK = 1;
